@@ -1,0 +1,93 @@
+﻿<UserControl
+    x:Class="myPace.Views.VolunteerCoordView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+    <Grid Background="{StaticResource WhiteLightBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="2" x:Name="stack"  Visibility="{Binding ProgressStackVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ProgressRing IsActive="{Binding ProgressRingActive}"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="100" Foreground="{StaticResource YellowLightBrush}"/>
+            <TextBlock Text="Please wait..."  Visibility="{Binding ProgressStackVisibility}"  HorizontalAlignment="Center" Foreground="{StaticResource GrayLightBrush}" FontSize="20"/>
+        </StackPanel>
+        <Grid Padding="10" Visibility="{Binding ElementName=parent,Path=Visibility}" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Path Visibility="{Binding SelectMainTypeVisibility}" Height="30" Width="30" Data="M2.9430213,2L11.814002,14.419C11.934377,14.587375,11.994986,14.7805,11.999996,14.97301L11.999403,15 11.999997,15 11.999997,27.382019 15.999997,29.382019 15.999997,15 16.000591,15 15.999999,14.97301C16.005008,14.7805,16.065618,14.587375,16.185992,14.419L25.056973,2z M1.0000257,0L26.999969,0C27.373967,0 27.717967,0.20899963 27.888967,0.54199982 28.060966,0.8760004 28.030967,1.276 27.813968,1.5810003L17.999997,15.320587 17.999997,31C17.999997,31.346985 17.820004,31.66803 17.525998,31.851013 17.365003,31.950012 17.182996,32 16.999997,32 16.846997,32 16.693997,31.965027 16.552991,31.89502L10.552991,28.89502C10.214002,28.724976,9.9999971,28.379028,9.9999971,28L9.9999971,15.320587 0.18602753,1.5810003C-0.030972481,1.276 -0.060972214,0.8760004 0.11102772,0.54199982 0.28202724,0.20899963 0.6250267,0 1.0000257,0z" Stretch="Uniform" Fill="{StaticResource GrayLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <TransformGroup.Children>
+                                <RotateTransform Angle="0" />
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </TransformGroup.Children>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+                <TextBlock VerticalAlignment="Center" Visibility="{Binding SelectMainTypeVisibility}" Text="Filter By:" FontSize="18" FontWeight="Light" Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <ComboBox Margin="0 0 10 0" Visibility="{Binding SelectMainTypeVisibility}" Background="Transparent"  ItemsSource="{Binding SelectVolunteerMainTypeEnums}" VerticalAlignment="Center" SelectedItem="{Binding SelectedMainType,Mode=TwoWay}"  Padding="5" PlaceholderText="Select Type" BorderThickness="0 0 0 2"  BorderBrush="{StaticResource YellowLightBrush}" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}" FontSize="14"   />
+                <ComboBox DisplayMemberPath="Name" Background="Transparent" Visibility="{Binding SelectSecondTypeVisibility}"  ItemsSource="{Binding SelectSecondTypeList}" Margin="5 0" VerticalAlignment="Center" SelectedItem="{Binding SelectedSecondType,Mode=TwoWay}"  Padding="5" PlaceholderText="Select" BorderThickness="0 0 0 2"  BorderBrush="{StaticResource YellowLightBrush}" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}" FontSize="14"   />
+                <ComboBox Background="Transparent" Visibility="{Binding StatusEnumVisibility}"  ItemsSource="{Binding StatusEnums}" Margin="5 0" VerticalAlignment="Center" SelectedItem="{Binding SelectedStatus,Mode=TwoWay}"  Padding="5" PlaceholderText="Select" BorderThickness="0 0 0 2"  BorderBrush="{StaticResource YellowLightBrush}" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}" FontSize="14"   />
+                <DatePicker Visibility="{Binding DateVisibility}" Date="{Binding SelectedDate,Mode=TwoWay}"  Style="{StaticResource DatePickerStyle}"  ToolTipService.ToolTip="Select a date" Foreground="{StaticResource GrayLightBrush}" BorderBrush="{StaticResource YellowLightBrush}"/>
+                <TextBox Visibility="{Binding SearchTextVisibility}" Text="{Binding SearchString,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"   PlaceholderText="Search" Style="{StaticResource TextBoxStyle}"   />
+            </StackPanel>
+            <Button Grid.Column="2" IsEnabled="{Binding BtnVisibility}"  Command="{Binding SearchCommand}" Padding="5" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Search"  Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="16"/>
+        </Grid>
+            <GridView Padding="5" HorizontalAlignment="Center"  ItemsSource="{Binding Volunteers}" Visibility="{Binding ParentVisibility}" Grid.Row="1" x:Name="parent"   VerticalAlignment="Stretch">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                    <Grid HorizontalAlignment="Center" BorderThickness="1" Background="{StaticResource GrayLightBrush}" CornerRadius="10" Width="400">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Margin="5" BorderBrush="{StaticResource YellowLightBrush}" BorderThickness="1" Height="100" Width="100" CornerRadius="80">
+                            <Border.Background >
+                                <ImageBrush ImageSource="{Binding ProfileImage}"/>
+                            </Border.Background>
+                        </Border>
+                        <Grid Grid.Column="1" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+
+                            </Grid.RowDefinitions>
+                            <TextBlock Margin="0 0 20 0" HorizontalAlignment="Right" VerticalAlignment="Center"  TextWrapping="Wrap" FontSize="14"   FontWeight="SemiBold" Foreground="{StaticResource WhiteLightBrush}">
+                                                <Run Text="{Binding Entity.FirstName}"/>
+                                                <Run Text=""/>
+                                                <Run Text="{Binding Entity.MiddleName}"/>
+                                                <Run Text=""/>
+                                                <Run Text="{Binding Entity.LastName}"/>
+                            </TextBlock>
+                            <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  TextWrapping="Wrap" FontSize="14" Margin="0 0 20 0"   FontWeight="Light" Foreground="{StaticResource WhiteLightBrush}"  Text="{Binding Entity.MobilePhone}"/>
+                            <TextBlock Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"  TextWrapping="Wrap" FontSize="14" Margin="0 0 20 0"   FontWeight="Light" Foreground="{StaticResource WhiteLightBrush}"  Text="{Binding Entity.Email}"/>
+                            <TextBlock Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center"  TextWrapping="Wrap" FontSize="14" Margin="0 0 20 0"   FontWeight="Light" Foreground="{StaticResource WhiteLightBrush}"  >
+                        <Run Text="From"/>
+                        <Run Text=""/>
+                        <Run Text="{Binding Entity.HighSchool}"/>
+                            </TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Button Content="Open" CommandParameter="{Binding Entity.Id}" Command="{Binding DataContext.GoToDetailsPage,ElementName=parent}" Foreground="{StaticResource WhiteLightBrush}"/>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+       
+        </Grid>
+</UserControl>

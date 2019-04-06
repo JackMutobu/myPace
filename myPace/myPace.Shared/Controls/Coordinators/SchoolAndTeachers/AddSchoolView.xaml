@@ -1,0 +1,158 @@
+﻿<UserControl
+    x:Class="myPace.Views.AddSchoolView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Views"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"  >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <StackPanel Visibility="{Binding ErrorVisibility}" HorizontalAlignment="Center">
+                <TextBlock Text="Errors" Foreground="{StaticResource RedBrush}"/>
+                <TextBlock Text="{Binding ValidationErrors}" Foreground="{StaticResource RedBrush}"/>
+            </StackPanel>
+        </Grid>
+        <Grid VerticalAlignment="Center" Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Row="1"  Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border>
+                    <Path Data="M17.001022,14.99998L28.001022,14.99998 28.001022,16.99998 17.001022,16.99998z M17.001012,9.9999948L28.001012,9.9999948 28.001012,11.999994 17.001012,11.999994z M9.0490112,6.5C7.9460115,6.5 7.0490112,7.3969998 7.0490112,8.5 7.0490112,9.6029997 7.9460115,10.5 9.0490112,10.5 10.152011,10.5 11.049011,9.6029997 11.049011,8.5 11.049011,7.3969998 10.152011,6.5 9.0490112,6.5z M17.001012,4.9999943L28.001012,4.9999943 28.001012,6.9999948 17.001012,6.9999948z M9.0490112,4.5C11.255011,4.5 13.049011,6.2939997 13.049011,8.5 13.049011,10.085562 12.122228,11.458285 10.781808,12.105021L10.64244,12.168118 10.831479,12.210938C13.272531,12.820312,15.049011,14.75,15.049011,18L13.049011,18C13.049011,15 11.255011,14 9.0490112,14 6.8430109,14 5.0490112,15 5.0490112,18L3.0490112,18C3.0490112,14.75,4.8254919,12.820312,7.2665434,12.210938L7.4555826,12.168118 7.3162136,12.105021C5.9757938,11.458285 5.0490112,10.085562 5.0490112,8.5 5.0490112,6.2939997 6.8430109,4.5 9.0490112,4.5z M3,2C2.448,2,2,2.448,2,3L2,19C2,19.552,2.448,20,3,20L29,20C29.552,20,30,19.552,30,19L30,3C30,2.448,29.552,2,29,2z M3,0L29,0C30.654,0,32,1.3459997,32,3L32,19C32,20.654,30.654,22,29,22L3,22C1.3460007,22,0,20.654,0,19L0,3C0,1.3459997,1.3460007,0,3,0z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TransformGroup.Children>
+                                    <RotateTransform Angle="0" />
+                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                </TransformGroup.Children>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Border>
+                <TextBox PlaceholderForeground="{StaticResource GrayLightBrush}" Foreground="{StaticResource GrayLightBrush}" Text="{Binding Path = School.Name,Mode=TwoWay}"   PlaceholderText="Name" Style="{StaticResource TextBoxStyle}"   />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border>
+                    <Path Data="M10,2L22,3.6000061 22,20.199997 10,18.5z M8.1999817,1.9000092L8.1999817,18.600006 0,23 0,5.6000061z M32,0L32,16.699997 23.799988,20.5 23.799988,3.6999969z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TransformGroup.Children>
+                                    <RotateTransform Angle="0" />
+                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                </TransformGroup.Children>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Border>
+                <TextBox PlaceholderForeground="{StaticResource GrayLightBrush}" Foreground="{StaticResource GrayLightBrush}" Text="{Binding Path = School.Location,Mode=TwoWay}"  PlaceholderText="Address" Style="{StaticResource TextBoxStyle}" />
+            </StackPanel>
+            <StackPanel Grid.Row="3" Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border>
+                    <Path Data="M4.8409804,29.998991L25.84198,29.998991 25.84198,31.998991 4.8409804,31.998991z M2.0170605,23.666406L2.007998,28.238984 5.8260368,25.671047z M9.256011,14.554992L10.139011,15.023992 6.5350107,21.796988 5.652011,21.327988z M9.6399899,8.3599968L2.0820837,22.570374 6.6710337,24.98551 14.199985,10.827995z M12.640992,2.7169933L10.578994,6.5939865 12.061279,7.3962402 15.139394,9.0612202 17.200986,5.1849899z M11.820992,0L19.899984,4.3699913 15.959988,11.778976 8.1049919,26.547985 0,31.998981 0.019999981,22.188988 7.8812184,7.4081059z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TransformGroup.Children>
+                                    <RotateTransform Angle="0" />
+                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                </TransformGroup.Children>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Border>
+                <TextBox PlaceholderForeground="{StaticResource GrayLightBrush}" Foreground="{StaticResource GrayLightBrush}" Text="{Binding Path=School.AreaMP,Mode=TwoWay}"  PlaceholderText="Area MP" Style="{StaticResource TextBoxStyle}"  />
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Margin="0 10 0 0" Orientation="Vertical" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Border>
+                        <Path Data="M10.000012,17.700012L10.800001,17.700012C10.899977,20,11.399977,26.300003,13.500016,28.600006L13.599992,28.700012 14.000017,21.700012 13.000016,20.900009 15.300007,18.900009 17.500021,20.800003 16.500021,21.700012 16.899984,29C17.099996,28.900009 17.200033,28.800003 17.399984,28.600006 17.399984,28.600006 20.500025,23.5 20.1,17.700012L20.399988,17.700012C25.899994,17.700012,30.399999,22.200012,30.399999,27.700012L30.399999,32 0,32 0,27.700012C2.2644235E-07,22.100006,4.5000055,17.700012,10.000012,17.700012z M15.300007,0C19.30001,0 22.500026,3.1000061 22.500026,6.9000092 22.500026,8.5 21.89999,10 21.000025,11.100006L21.000025,8.7000122C21.000025,8.7000122 20.700037,5.7000122 17.599996,6.3000031 17.599996,6.3000031 14.200029,8.5 10.500013,6.5 10.500013,6.5 9.299999,8.5 9.8,11.400009 8.7000225,10.200012 8.0000098,8.6000061 8.0000098,6.9000092 8.0000098,3.1000061 11.300002,0 15.300007,0z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <TextBox PlaceholderForeground="{StaticResource GrayLightBrush}" Foreground="{StaticResource GrayLightBrush}" Text="{Binding Path=School.Principle,Mode=TwoWay}"  PlaceholderText="Principle" Style="{StaticResource TextBoxStyle}"  />
+                    
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel Grid.Row="5" Margin="0 10 0 0" Orientation="Vertical" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Border>
+                        <Path Data="M27.967957,15.530001L27.967957,17.194002 29.151001,17.194002 29.151001,15.530001z M26.636963,15.530001L26.636963,17.194002 27.842957,17.194002 27.842957,15.530001z M8.8699951,15.530001L8.8699951,17.194002 10.052002,17.194002 10.052002,15.530001z M7.5390015,15.530001L7.5390015,17.194002 8.742981,17.194002 8.742981,15.530001z M23.350952,15.487002L23.350952,17.130999 24.563965,17.130999 24.563965,15.487002z M22.052002,15.487002L22.052002,17.130999 23.225952,17.130999 23.225952,15.487002z M4.2519531,15.487002L4.2519531,17.130999 5.46698,17.130999 5.46698,15.487002z M2.9530029,15.487002L2.9530029,17.130999 4.1269531,17.130999 4.1269531,15.487002z M27.967957,13.738008L27.967957,15.403002 29.151001,15.403002 29.151001,13.738008z M26.636963,13.738008L26.636963,15.403002 27.842957,15.403002 27.842957,13.738008z M18.198975,13.738008L18.198975,18.261004 19.664978,18.261004 19.664978,13.738008z M16.523987,13.738008L16.523987,18.261004 18.072998,18.261004 18.072998,13.738008z M14.188965,13.738008L14.188965,18.261004 15.643005,18.261004 15.643005,13.738008z M12.502991,13.738008L12.502991,18.261004 14.062988,18.261004 14.062988,13.738008z M8.8699951,13.738008L8.8699951,15.403002 10.052002,15.403002 10.052002,13.738008z M7.5390015,13.738008L7.5390015,15.403002 8.742981,15.403002 8.742981,13.738008z M23.350952,13.675996L23.350952,15.36101 24.563965,15.36101 24.563965,13.675996z M22.052002,13.675996L22.052002,15.36101 23.225952,15.36101 23.225952,13.675996z M4.2519531,13.675996L4.2519531,15.36101 5.46698,15.36101 5.46698,13.675996z M2.9530029,13.675996L2.9530029,15.36101 4.1269531,15.36101 4.1269531,13.675996z M22.617004,8.7129985L22.617004,10.785997 25.130005,10.785997 25.130005,8.7129985z M17.591003,8.7129985L17.591003,10.785997 20.104004,10.785997 20.104004,8.7129985z M12.125,8.6490031L12.125,10.722001 14.638,10.722001 14.638,8.6490031z M7.098999,8.6490031L7.098999,10.722001 9.6119995,10.722001 9.6119995,8.6490031z M16.145996,4.7630011L16.145996,6.7630011 16.190002,6.761994C17.251953,6.7080084,18.10199,5.8569952,18.153992,4.7949988L18.154968,4.7630011z M14.011963,4.7630011L14.013,4.7949988C14.065002,5.8569952,14.915955,6.7080084,15.97699,6.761994L16.020996,6.7630011 16.020996,4.7630011z M16.145996,2.619995L16.145996,4.6380011 18.156006,4.6380011 18.153992,4.587998C18.10199,3.5260013,17.251953,2.6739961,16.190002,2.6210021z M16.020996,2.619995L15.97699,2.6210021C14.915955,2.6739961,14.065002,3.5260013,14.013,4.587998L14.011963,4.6380011 16.020996,4.6380011z M16.125,0L20.64801,3.0160064 20.64801,6.7019964 27.057007,6.7019964 27.057007,11.225007 31.119995,11.225007 31.119995,18.261004 32,18.261004 32,19.435 0,19.435 0,18.261004 0.87896729,18.261004 0.87896729,11.225007 4.9429932,11.225007 4.9429932,6.7019964 11.60199,6.7019964 11.60199,3.0160064z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <ComboBox ItemsSource="{Binding SchoolsType}" Background="Transparent" SelectedItem="{Binding School.Type,Mode=TwoWay}" MinWidth="296" Padding="10" PlaceholderText="Schools" BorderThickness="0 0 0 2" Margin="10 0 0 0" BorderBrush="{StaticResource YellowLightBrush}" Foreground="{StaticResource GrayLightBrush}" FontSize="16"   />
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel Grid.Row="6" Margin="0 0 0 60">
+                <Button IsEnabled="{Binding BtnVisibility}" MaxWidth="400"  Command="{Binding RegisterSchoolCommand}" Padding="10" Margin="0 5" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Register" Foreground="{StaticResource WhiteLightBrush}" Background="#FF5A5A5A" FontSize="16"/>
+
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="10">
+                <Border Height="130" Width="130" CornerRadius="80" BorderBrush="{StaticResource YellowLightBrush}" BorderThickness="1">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding ProfileImageSource}"/>
+                    </Border.Background>
+                </Border>
+                <TextBlock HorizontalAlignment="Center"  Text="{Binding ImagePath}"/>
+                <Button Margin="0 5" Command="{Binding UploadSchoolPicCommand}" Padding="10" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Center" Content="Upload  Photo" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="16"/>
+            </StackPanel>
+
+
+           
+           
+        </Grid>
+    </Grid>
+</UserControl>

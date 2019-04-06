@@ -1,0 +1,90 @@
+﻿<UserControl
+    x:Class="myPace.Views.ListTeachersView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:myPace.ViewModels.Coordinators"
+    mc:Ignorable="d"
+   x:Name="parentControl">
+
+    <Grid  Background="{StaticResource WhiteLightBrush}" >
+        <StackPanel x:Name="ProgressStack" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <ProgressRing x:Name="PrgoressLoading"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="100" Foreground="{StaticResource YellowLightBrush}"/>
+            <TextBlock Text="Please wait..." HorizontalAlignment="Center" Foreground="{StaticResource GrayLightBrush}" FontSize="20"/>
+        </StackPanel>
+        <GridView x:Name="parent" ItemsSource="{Binding Teachers}" HorizontalAlignment="Center">
+            <GridView.ItemTemplate>
+                <DataTemplate >
+                    <Border CornerRadius="10,10,0,0" Padding="5" Height="500" Width="420" BorderThickness="1" BorderBrush="{StaticResource GrayLightBrush}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border  Background="{StaticResource FocusVisualBlackStrokeThemeBrush}" Grid.Row="0" Padding="10" Margin="-5,-5,-5,0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <TextBlock    FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource WhiteLightBrush}">
+                                <Run Text="{Binding Entity.FirstName}"/>
+                                <Run Text=""/>
+                                <Run Text="{Binding Entity.MiddleName}"/>
+                                <Run Text=""/>
+                                <Run Text="{Binding Entity.LastName}"/>
+                                </TextBlock>
+                            </Border>
+                            <Border Margin="10" CornerRadius="80" Height="150" Width="150" Grid.Row="1" Grid.ColumnSpan="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding ProfileImage}"/>
+                                </Border.Background>
+                            </Border>
+                            <TextBlock Text="Address"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="DOB"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="Email"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="Tel. No"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="Gender"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="School"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.Address}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.DOB}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.Email}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.MobilePhone}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.Gender}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.School.Name}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <Border Grid.Row="8" Padding="2" Background="{StaticResource FocusVisualBlackStrokeThemeBrush}"   Margin="-5,0,-5,-5" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Button  VerticalAlignment="Stretch"   Command="{Binding DataContext.EditTeacherCommand,ElementName=parent}"   CommandParameter="{Binding Entity.Id}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Height="30">
+                                            <Path Data="M1,25.07703L31,25.07703C31.552979,25.07703 32,25.525028 32,26.07703 32,26.629032 31.552979,27.07703 31,27.07703L1,27.07703C0.44702148,27.07703 0,26.629032 0,26.07703 0,25.525028 0.44702148,25.07703 1,25.07703z M9.8064213,17.357931L9.6760168,17.487015 8.8610172,21.393018 12.748013,20.558017 12.865452,20.441767z M20.509636,6.7630577L11.227604,15.951134 14.286634,19.034972 23.568132,9.8474321z M24.492002,2.821003L21.93083,5.3562489 24.989326,8.4406242 27.563,5.8930054z M24.500002,0L30.398996,5.9010048 13.740012,22.391018 6.2750196,23.99302 7.8420181,16.489014z" Stretch="Uniform" Fill="{StaticResource WhiteLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Border>
+                                        <TextBlock Margin="10" VerticalAlignment="Center" Foreground="{StaticResource WhiteLightBrush}" Text="Edit"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+           
+                     
+        </GridView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,140 @@
+﻿<Page
+    x:Class="myPace.Views.Volunteers.HomeVolunteerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Views.Volunteers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="3"  Visibility="{Binding ProgressStackVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ProgressRing IsActive="{Binding ProgressRingActive}"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="100" Foreground="{StaticResource YellowLightBrush}"/>
+            <TextBlock Text="Please wait..." HorizontalAlignment="Center" Foreground="{StaticResource GrayLightBrush}" FontSize="20"/>
+        </StackPanel>
+        <!--Header-->
+        <CommandBar x:Name="parent" Content="{Binding Title}"  VerticalContentAlignment="Center"  Background="#FF383838" Foreground="{StaticResource GrayLightBrush}" FontSize="24" FontWeight="Normal" >
+            <AppBarButton Command="{Binding RefreshPageCommand}" ToolTipService.ToolTip="Refresh">
+                <AppBarButton.Content>
+                    <Grid>
+                        <Border >
+                            <Path Data="M18.426025,0C25.913025,-4.8468792E-08 32,6.1669937 32,13.741 32,21.319005 25.913025,27.485999 18.426025,27.485999 15.667999,27.485999 13.104004,26.643989 10.960022,25.207007L13.22702,21.690984C14.718018,22.694005 16.506012,23.284001 18.426025,23.284001 23.620026,23.284001 27.848022,19.002996 27.848022,13.741 27.848022,8.4829731 23.620026,4.2029734 18.426025,4.2029734 14.284027,4.2029734 10.796021,6.9379898 9.5350037,10.711001L14.376007,10.767978 7.053009,22.125981 0,10.591983 5.2090149,10.653995C6.5980225,4.5649729,11.991028,-4.8468792E-08,18.426025,0z" Stretch="Uniform" Fill="{StaticResource YellowLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Border>
+                    </Grid>
+                </AppBarButton.Content>
+            </AppBarButton>
+            <AppBarButton Visibility="{Binding ProjectCommandBarVisibility}" Command="{Binding GoToNewProjectPage}" ToolTipService.ToolTip="New Project">
+                <AppBarButton.Content>
+                    <Grid >
+                        <Border VerticalAlignment="Center" >
+
+                            <Path Data="M14.399994,8.0999985L17.5,8.0999985 17.5,14.5 23.899994,14.5 23.899994,17.599998 17.5,17.599998 17.5,24 14.399994,24 14.399994,17.599998 8,17.599998 8,14.5 14.399994,14.5z M16,2.5C8.5,2.5 2.5,8.5 2.5,16 2.5,23.5 8.6000061,29.5 16,29.5 23.5,29.5 29.5,23.400002 29.5,16 29.5,8.5 23.5,2.5 16,2.5z M16,0C24.799988,0 32,7.1999969 32,16 32,24.800003 24.799988,32 16,32 7.1999817,32 0,24.800003 0,16 0,7.1999969 7.1999817,0 16,0z" Stretch="Uniform" Fill="{StaticResource YellowLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Border>
+                    </Grid>
+                </AppBarButton.Content>
+            </AppBarButton>
+        </CommandBar>
+        <Grid Grid.Row="1" Visibility="{Binding ElementName=parent,Path=Visibility,UpdateSourceTrigger=PropertyChanged}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+           
+            <Button Command="{Binding GoToProjectVolView}" Grid.Column="0" BorderThickness="0 0 0 1" BorderBrush="{StaticResource GrayLightBrush}"   HorizontalAlignment="Stretch"  Foreground="{StaticResource GrayLightBrush}" Background="Transparent">
+                <StackPanel Orientation="Vertical">
+                    <Border HorizontalAlignment="Center" Height="20">
+                        <Path Data="M8.9999998,12.100008C10.7,12.100008 10.6,13.800009 10.6,13.800009 10.5,15.70001 8.4,15.40001 8.4,15.40001L8.4,12.200008C8.5999999,12.100008,8.8,12.100008,8.9999998,12.100008z M6.8000001,10.400007L6.8000001,20.500013 8.4,20.500013 8.4,17.100011C8.4,17.100011 12.7,17.800012 12.7,13.400009 12.7,13.400009 12.8,10.400007 10.1,10.400007z M19.3,4.1000042L31.225,4.1000042C31.225,4.1000042 31.226562,4.1000042 31.229688,4.1000042 31.232812,4.1000042 31.237501,4.1000042 31.243751,4.1000042 31.250001,4.1000042 31.257814,4.1000042 31.267189,4.1000042 31.276563,4.1000042 31.2875,4.1000042 31.300001,4.1000042 31.5,4.1000042 32,4.2000027 32,4.9000034L32,26.000016C32,26.000016,31.899999,26.800017,31.1,26.800017L19.2,26.800017 19.2,21.000014 19.2,20.600013 22.2,23.800015 25.800001,20.400013 22.4,16.800011 19.2,19.800013 19.2,19.500013 19.2,9.8000069 26.399999,9.8000069 26.399999,14.400009 24,14.400009 27.399999,18.000011 30.800001,14.400009 28.1,14.30001 28.300001,8.5000057C28.300001,8.5000057,28.2,7.8000059,27.399999,7.8000059L19.3,7.8000059z M18.6,0L18.6,30.700019 0,27.500017 0,3.1000023z" Stretch="Uniform" Fill="{StaticResource GrayLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <TextBlock HorizontalAlignment="Stretch" Text="Project"/>
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding GoToReportVolView}" Grid.Column="1" BorderThickness="0 0 0 1" BorderBrush="{StaticResource GrayLightBrush}"   HorizontalAlignment="Stretch"  Foreground="{StaticResource GrayLightBrush}" Background="Transparent">
+                <StackPanel Orientation="Vertical">
+                    <Border HorizontalAlignment="Center" Height="20">
+                        <Path Data="M9.8290001,6.0040008L9.667998,11.225001C9.667998,11.225001,9.4589983,14.677999,5.6549979,14.261L2.3930012,14.172999 2.3930012,29.006997C2.3930012,29.337998,2.6630014,29.604996,2.9929997,29.604996L19.753998,29.604996C20.083001,29.604996,20.351998,29.337998,20.351998,29.006997L20.351998,6.6020004C20.351998,6.2730018,20.083001,6.0040008,19.753998,6.0040008z M9.6719996,3.6100003L19.753998,3.6100003C21.406998,3.6100001,22.747994,4.95,22.747994,6.6020004L22.747994,29.006997C22.747994,30.660996,21.406998,32.000001,19.753998,32.000001L2.9929997,32.000001C1.3399999,32.000001,-4.1612282E-08,30.660996,0,29.006997L0,13.815001 1.1850009,12.564002 1.1860003,12.530001 7.3979975,6.0040008 7.3799998,6.0040008 5.7200004,7.7559997 7.4599978,5.9120018 7.4839998,5.9120018 7.5390001,5.8550026 7.5450007,5.8550026z M13.463998,0L24.510993,0 26.873999,0 26.873999,2.1060023 26.873999,24.489999 24.510993,24.489999 24.510993,2.1060023 13.463998,2.1060023z" Stretch="Uniform" Fill="{StaticResource GrayLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <TextBlock HorizontalAlignment="Stretch" Text="Reports"/>
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding GoToAssignmentVolView}" Grid.Column="2" BorderThickness="0 0 0 1" BorderBrush="{StaticResource GrayLightBrush}"   HorizontalAlignment="Stretch"  Foreground="{StaticResource GrayLightBrush}" Background="Transparent">
+                <StackPanel Orientation="Vertical">
+                    <Border HorizontalAlignment="Center" Height="20">
+                        <Path Data="M16.000003,9.9590149C16.553002,9.9590151,17,10.407014,17,10.959012L17,15 13.013012,15C12.460014,15 12.013015,14.552001 12.013015,14.000003 12.013015,13.448004 12.460014,13.000006 13.013012,13.000006L15.000006,13.000006 15.000006,10.959012C15.000006,10.407014,15.447005,9.9590151,16.000003,9.9590149z M16.000008,9C13.243004,9 11.000008,11.243011 11.000008,14 11.000008,16.756989 13.243004,19 16.000008,19 18.756996,19 21.000008,16.756989 21.000008,14 21.000008,11.243011 18.756996,9 16.000008,9z M16.000008,7C19.858986,7 23.000008,10.140015 23.000008,14 23.000008,17.859985 19.858986,21 16.000008,21 12.140999,21 9.0000076,17.859985 9.0000076,14 9.0000076,10.140015 12.140999,7 16.000008,7z M2.0000005,2L2.0000005,22 30,22 30,6 16.544001,6C14.817,5.9999995,13.335001,4.8259995,12.941,3.1440001L12.673,2z M1.7700005,0L12.911,0C13.701,-4.7683716E-07,14.386001,0.54399967,14.566,1.3120003L14.889,2.6879997C15.069,3.4559996,15.754,3.9999995,16.544001,4L30.23,4C31.208,3.9999995,32,4.7919996,32,5.7699995L32,22.23C32,23.208,31.208,24,30.23,24L1.7700005,24C0.79200077,24,0,23.208,0,22.23L0,1.7699995C0,0.79199934,0.79200077,-4.7683716E-07,1.7700005,0z" Stretch="Uniform" Fill="{StaticResource GrayLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <TextBlock HorizontalAlignment="Stretch" Text="Assignement"/>
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding GoToNotificationVolView}" Grid.Column="4" BorderThickness="0 0 0 1" BorderBrush="{StaticResource GrayLightBrush}"   HorizontalAlignment="Stretch"  Foreground="{StaticResource GrayLightBrush}" Background="Transparent">
+                <StackPanel Orientation="Vertical">
+                    <Border HorizontalAlignment="Center" Height="20">
+                        <Path Data="M11.467745,28L11.504386,28.072749C12.118885,29.227386 13.230397,30 14.496995,30 15.763593,30 16.875105,29.227386 17.489604,28.072749L17.526245,28z M14.479255,2C11.604237,2.0419998 9.3492229,2.8409996 7.9862146,4.3129997 6.0762026,6.3770008 6.2552037,9.0310001 6.2572036,9.0569992 7.5572119,17.502 5.0071962,19.676 4.482193,20.025L4.3461919,20.106C1.6501756,22.34,1.7811761,24.863,2.2631793,26L8.996995,26 10.996995,26 17.996995,26 19.996995,26 26.73033,26C27.214334,24.845,27.333333,22.334,24.652317,20.109L24.566317,20.059C23.987313,19.676 21.434298,17.502 22.743305,8.9939995 22.740306,8.9939995 22.902307,6.3630009 21.004294,4.3129997 19.641286,2.8409996 17.385272,2.0419998 14.479255,2z M14.479255,0C17.974277,0.049999237 20.728293,1.0709991 22.471304,2.9549999 25.029319,5.7159996 24.730318,9.2049999 24.727318,9.2399998 23.582311,16.692 25.618323,18.357 25.638324,18.374L25.855325,18.509C29.681348,21.628,29.241345,25.424,28.474341,26.996L28.004338,28 19.68173,28 19.66274,28.061111C18.890584,30.357538 16.866494,32 14.496995,32 12.127496,32 10.103405,30.357538 9.3312502,28.061111L9.3122594,28 0.99117184,28 0.51316833,26.981C-0.24783611,25.424,-0.68783855,21.628,3.1381845,18.509L3.4258566,18.328207 3.4251866,18.329 3.4261866,18.328 3.4258566,18.328207 3.4294982,18.3239C3.531518,18.21725 5.3649795,16.399875 4.2731915,9.2970009 4.2621918,9.2049999 3.9631896,5.7150002 6.5182052,2.9549999 8.2632162,1.0709991 11.015233,0.049999237 14.479255,0z" Stretch="Uniform" Fill="{StaticResource GrayLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <TextBlock HorizontalAlignment="Stretch" Text="Notification"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Frame Grid.Row="2" Visibility="{Binding ElementName=parent,Path=Visibility}" Content="{Binding FrameContent}" />
+    </Grid>
+</Page>

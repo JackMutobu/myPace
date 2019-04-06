@@ -1,0 +1,281 @@
+﻿<Page
+    x:Class="myPace.Views.Volunteers.ProjectDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Views.Volunteers"
+    xmlns:converters="using:myPace.Shared.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"   >
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:DisplayDateConverter x:Key="DisplayDateConverter"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <CommandBar Grid.ColumnSpan="2" Content="{Binding Title}"  VerticalContentAlignment="Center"  Background="#FF383838" Foreground="{StaticResource GrayLightBrush}" FontSize="24" FontWeight="Normal" >
+            <AppBarButton Command="{Binding RefreshPageCommand}" ToolTipService.ToolTip="Refresh Page">
+                <AppBarButton.Content>
+                    <Grid>
+                        <Border >
+                            <Path Data="M18.426025,0C25.913025,-4.8468792E-08 32,6.1669937 32,13.741 32,21.319005 25.913025,27.485999 18.426025,27.485999 15.667999,27.485999 13.104004,26.643989 10.960022,25.207007L13.22702,21.690984C14.718018,22.694005 16.506012,23.284001 18.426025,23.284001 23.620026,23.284001 27.848022,19.002996 27.848022,13.741 27.848022,8.4829731 23.620026,4.2029734 18.426025,4.2029734 14.284027,4.2029734 10.796021,6.9379898 9.5350037,10.711001L14.376007,10.767978 7.053009,22.125981 0,10.591983 5.2090149,10.653995C6.5980225,4.5649729,11.991028,-4.8468792E-08,18.426025,0z" Stretch="Uniform" Fill="{StaticResource YellowLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Border>
+                    </Grid>
+                </AppBarButton.Content>
+            </AppBarButton>
+            <AppBarButton Command="{Binding GoToBackPage}" ToolTipService.ToolTip="Go Back">
+                <AppBarButton.Content>
+                    <Grid>
+                        <Border >
+                            <Path Data="M11.299988,0L16.599976,0 7.0999756,8.8999959 32,8.8999959 32,12.399997 7.0999756,12.399997 16.5,21.299993 16.400024,21.399999 11.299988,21.399999 2.5999756,13.100009 0,10.699985z" Stretch="Uniform" Fill="{StaticResource YellowLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Border>
+                    </Grid>
+                </AppBarButton.Content>
+            </AppBarButton>
+            <AppBarButton Command="{Binding GoToForwardPage}" ToolTipService.ToolTip="Go Forward">
+                <AppBarButton.Content>
+                    <Grid>
+                        <Border >
+                            <Path Data="M15.500015,0L20.800008,0 32.000001,10.700012 29.400021,13.200012 20.700002,21.5 15.599991,21.5 15.500015,21.400009 24.900018,12.400009 0,12.400009 0,8.900009 24.900018,8.900009z" Stretch="Uniform" Fill="{StaticResource YellowLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Border>
+                    </Grid>
+                </AppBarButton.Content>
+            </AppBarButton>
+        </CommandBar>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="10 10 0 0">
+                        <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="Name"/>
+                        <TextBlock Margin="10 0 0 0" FontSize="16" FontWeight="Normal" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{Binding Project.Name}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="10 10 0 0">
+                        <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="Problem Statement"/>
+                        <TextBlock Margin="10 0 0 0" FontSize="16"  TextWrapping="Wrap" FontWeight="Normal" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{Binding Project.ProblemStatement}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Margin="10 10 0 0">
+                        <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="Solution"/>
+                        <TextBlock Margin="10 0 0 0" FontSize="16"  TextWrapping="Wrap" FontWeight="Normal" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{Binding Project.Solution}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Margin="10 10 0 0">
+                        <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="SDG"/>
+                        <TextBlock Margin="10 0 0 0" FontSize="16"  TextWrapping="Wrap" FontWeight="Normal" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{Binding Project.SDG}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4" Margin="10 10 0 0">
+                        <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="Type"/>
+                        <TextBlock Margin="10 0 0 0" FontSize="16"  TextWrapping="Wrap" FontWeight="Normal" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{Binding Project.ProjectType}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5" Margin="10 10 0 0">
+                        <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="Category"/>
+                        <TextBlock Margin="10 0 0 0" FontSize="16"  TextWrapping="Wrap" FontWeight="Normal" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{Binding Project.Category}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="6" Margin="10 10 0 0">
+                        <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="Frame"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="10 0 10 0"   TextWrapping="Wrap" FontWeight="Normal" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{Binding Project.StartDate, Converter={StaticResource DisplayDateConverter}}"/>
+                            <TextBlock Margin="10 0 10 0"   TextWrapping="Wrap" FontWeight="Light" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="To"/>
+                            <TextBlock Margin="10 0 0 0"   TextWrapping="Wrap" FontWeight="Normal" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{Binding Project.EndDate,Converter={StaticResource DisplayDateConverter}}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Visibility="{Binding CommentVisibility}" Grid.Row="9" Margin="10 10 0 0">
+                        <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="Comments"/>
+                        <Grid Grid.Row="7">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <ListView ItemsSource="{Binding Project.Comments}" MaxHeight="300">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid CornerRadius="10" Margin="0 5" Padding="10" Background="{StaticResource GrayLightBrush}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock TextWrapping="Wrap" FontSize="14"  FontWeight="SemiLight" Foreground="{StaticResource WhiteLightBrush}"  Text="{Binding Text}"/>
+                                            <StackPanel Grid.Row="1" Margin="0 10 0 0" Orientation="Horizontal">
+                                                <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" FontSize="14" FontStyle="Italic"  FontWeight="Normal" Foreground="{StaticResource WhiteLightBrush}"  Text="{Binding CoordinatorNames}"/>
+                                                <TextBlock HorizontalAlignment="Right" Margin="100 0 0 0" TextWrapping="Wrap" FontSize="14" FontStyle="Italic"  FontWeight="Normal" Foreground="{StaticResource WhiteLightBrush}"  Text="{Binding UploadDate}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                              
+                            </ListView>
+                            <StackPanel Visibility="{Binding CoordCommentVisibility}"  Grid.Row="1"  Margin="0 10 0 0"  HorizontalAlignment="Center">
+                              <StackPanel Orientation="Horizontal">
+                                <Border>
+                                    <Path Data="M29.15,0L30.186011,0.012001038 30.610999,0.43099976 31.096015,3.868 31.209998,7.8079987 31.101996,8.3949966 30.610999,8.6230011 29.875007,8.5510025 29.437018,7.9520035 28.312018,5.298996 26.993995,3.7130013 25.82801,3.072998 24.294013,2.6170006 22.390996,2.3429985 20.12,2.2509995 18.580998,2.3590012 17.940007,2.6829987 17.868993,3.0900002 17.868993,26.970001 18.048009,28.272003 18.58701,29.113998 19.659001,29.697998 21.437016,30.227997 22.149999,30.389 22.467015,30.490997 22.707005,31.401001 22.179997,32 21.910008,31.994003 21.198003,31.928001 15.424992,31.640999 10.755008,31.879997 9.4850186,31.879997 9.1740131,31.305 9.2879972,30.665001 10.011996,30.275002 11.737002,29.695 12.791018,29.005997 13.401005,27.909996 13.605015,26.298996 13.605015,3.0900002 13.390018,2.5390015 12.743014,2.2750015 12.342013,2.2579994 11.329989,2.2509995 7.3779925,2.6469994 4.6229872,3.8320007 3.0840158,5.4970016 1.7250066,8.1439972 1.2399907,8.7959976 0.598999,8.7900009 0.041992187,8.4729996 0,7.9039993 0.62899778,4.7839966 0.83898971,0.59899902 1.2040105,0.20999908 2.2999882,0.14400101 7.7489947,0.39500046 13.748997,0.47900009 19.16602,0.44900131 23.539008,0.35900116 26.867011,0.20999908z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <TransformGroup.Children>
+                                                    <RotateTransform Angle="0" />
+                                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                </TransformGroup.Children>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Border>
+                                    <TextBox TextWrapping="Wrap"   PlaceholderForeground="{StaticResource GrayLightBrush}" Foreground="{StaticResource GrayLightBrush}" Text="{Binding Comment.Text, Mode=TwoWay}"   PlaceholderText="Your comment" Style="{StaticResource TextBoxStyle}"   />
+                                
+                            </StackPanel>
+                                <StackPanel Visibility="{Binding CoordCommentVisibility}" Margin="0 5" Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button VerticalAlignment="Center" Width="100" Command="{Binding AddCommentCommand}"  IsEnabled="{Binding BtnVisibility}"  Padding="8" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Add" Foreground="{StaticResource WhiteLightBrush}" Background="#FF5A5A5A" FontSize="14"/>
+                                    <Button Command="{Binding CommentVisibilityCommand}" VerticalAlignment="Center" Width="100"  IsEnabled="{Binding BtnVisibility}"  Padding="8" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Hide" Foreground="{StaticResource WhiteLightBrush}" Background="#FF5A5A5A" FontSize="14"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                    <Grid Visibility="{Binding MediaVisibility}" Margin="10 10 0 0" x:Name="parent" Grid.Row="8" HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ListView Grid.Row="1" ItemsSource="{Binding Project.Medias}" MaxHeight="300" HorizontalAlignment="Center">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid CornerRadius="10" Width="400" Margin="0 5" ColumnSpacing="5" Padding="1" Background="{StaticResource GrayLightBrush}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Width="70" CornerRadius="10"  Grid.RowSpan="2" Height="Auto" Padding="10" Background="{StaticResource WhiteLightBrush}">
+                                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Format}"  Foreground="{StaticResource GrayLightBrush}"/>
+                                        </Border>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Description}"  Foreground="{StaticResource WhiteLightBrush}"/>
+                                        <StackPanel Grid.Row="1" Grid.ColumnSpan="2"  HorizontalAlignment="Right" Margin="0 10" Orientation="Horizontal">
+                                            <Button Width="80" Content="Open" CommandParameter="{Binding Id}" Command="{Binding DataContext.OpenFileCommand, ElementName=parent}" IsEnabled="{Binding BtnVisibility}" ToolTipService.ToolTip="Open"  Padding="5" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch"  Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="13">
+                                            </Button>
+                                            <Button Width="80"  Content="Edit" IsEnabled="{Binding BtnVisibility}" Visibility="Collapsed"  Padding="5" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch"  Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="13">
+                                            </Button>
+                                            <Button Width="80" Visibility="Collapsed" Command="{Binding DataContext.RemoveMediaFromListCommand, ElementName=parent}"  CommandParameter="{Binding File}" Content="Delete" IsEnabled="{Binding BtnVisibility}" Foreground="{StaticResource WhiteLightBrush}"  Padding="5" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch"   Background="{StaticResource RedBrush}" FontSize="13">
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+
+                        </ListView>
+                        <Grid Grid.Row="0" RowSpacing="5">
+                            <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}" HorizontalAlignment="Left"  Text="Files"/>
+                        </Grid>
+
+                    </Grid>
+                    <Grid Visibility="{Binding TeamVisibility}" Margin="10 10 0 0" Grid.Row="7" HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ListView Grid.Row="1" ItemsSource="{Binding Team}"  Margin="0 10 0 0" MaxHeight="300" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid BorderThickness="1" Background="{StaticResource GrayLightBrush}" CornerRadius="10" Width="400">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Margin="5" BorderBrush="{StaticResource YellowLightBrush}" BorderThickness="1" Height="80" Width="80" CornerRadius="80">
+                                            <Border.Background >
+                                                <ImageBrush ImageSource="{Binding ProfileImage}"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <Grid Grid.Column="1" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Margin="0 0 20 0" HorizontalAlignment="Right" VerticalAlignment="Center"  TextWrapping="Wrap" FontSize="14"   FontWeight="SemiBold" Foreground="{StaticResource WhiteLightBrush}">
+                                                <Run Text="{Binding Entity.FirstName}"/>
+                                                <Run Text=""/>
+                                                <Run Text="{Binding Entity.MiddleName}"/>
+                                                <Run Text=""/>
+                                                <Run Text="{Binding Entity.LastName}"/>
+                                            </TextBlock>
+                                            <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  TextWrapping="Wrap" FontSize="14" Margin="0 0 20 0"   FontWeight="Light" Foreground="{StaticResource WhiteLightBrush}"  Text="{Binding Entity.MobilePhone}"/>
+                                            <TextBlock Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"  TextWrapping="Wrap" FontSize="14" Margin="0 0 20 0"   FontWeight="Light" Foreground="{StaticResource WhiteLightBrush}"  Text="{Binding Entity.Email}"/>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Grid Grid.Row="0" RowSpacing="5">
+                            <TextBlock  FontWeight="Normal" Foreground="{StaticResource GrayLightBrush}"  Text="Team"/>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Padding="3"  Visibility="{Binding ProgressStackVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ProgressRing IsActive="{Binding ProgressRingActive}"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="100" Foreground="{StaticResource YellowLightBrush}"/>
+                    <TextBlock Text="Something is loading..." HorizontalAlignment="Center" Foreground="{StaticResource GrayLightBrush}" FontSize="10"/>
+                </StackPanel>
+                <StackPanel  Padding="5" Grid.Row="1"  HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Width="85" Visibility="{Binding VolunteerVisibilityCommands}" Command="{Binding EditEntityCommand}"  IsEnabled="{Binding BtnVisibility}"  Padding="8" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Edit" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="14"/>
+                    <Button Width="85" Command="{Binding CommentVisibilityCommand}" IsEnabled="{Binding BtnVisibility}"  Padding="8" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Comment" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="14"/>
+                    <Button Width="85"  IsEnabled="{Binding BtnVisibility}" Command="{Binding MediaVisibilityCommand}"  Padding="8" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Attach" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="14"/>
+                    <Button Width="85" Visibility="{Binding VolunteerVisibilityCommands}" Command="{Binding DeleteProjectCommand}"  IsEnabled="{Binding BtnVisibility}"  Padding="8" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Delete" Foreground="{StaticResource WhiteLightBrush}" Background="{StaticResource RedBrush}" FontSize="14"/>
+                </StackPanel>
+            </Grid>
+           
+        </Grid>
+       
+    </Grid>
+</Page>

@@ -1,0 +1,127 @@
+﻿<UserControl
+    x:Class="myPace.Controls.Coordinators.Volunteers.GeneralInfoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Controls.Coordinators.Volunteers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Grid Background="{StaticResource WhiteLightBrush}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="10" RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border Height="250" Width="250" HorizontalAlignment="Center">
+                <Border.Background >
+                    <ImageBrush ImageSource="{Binding Volunteer.ProfileImage}"/>
+                </Border.Background>
+            </Border>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="Names"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0"    HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}">
+                                <Run Text="{Binding Volunteer.Entity.FirstName}"/>
+                                <Run Text=""/>
+                                <Run Text="{Binding Volunteer.Entity.MiddleName}"/>
+                                <Run Text=""/>
+                                <Run Text="{Binding Volunteer.Entity.LastName}"/>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="Gender"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Entity.Gender}"   HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="Age:"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Age}"   HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="Address"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Entity.Address}"   HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="Tel. No"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Entity.MobilePhone}"   HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="6" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="Email"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Entity.Email}"   HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="High School"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Entity.HighSchool}"   HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="Graduation Year"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Entity.GraduationYear}"   HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="9" Orientation="Horizontal" VerticalAlignment="Stretch">
+                <TextBlock Text="Grades(Math,English)"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Entity.Grades}"   HorizontalAlignment="Center" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Margin="0 10 10 10" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Text="Closest Schools"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" />
+                <ScrollViewer Margin="20 0 0 0" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" MaxHeight="200" Width="296" Background="White">
+                    <ItemsControl ItemsSource="{Binding DataContext.ClosestsSchools,ElementName=parent}"   Padding="10"  BorderThickness="0 0 0 2"  BorderBrush="{StaticResource YellowLightBrush}" Foreground="{StaticResource GrayLightBrush}" FontSize="16">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding DisplayName}" 
+                          FontSize="16" 
+                          Foreground="{StaticResource GrayLightBrush}"
+                          IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          IsThreeState="False" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+                <TextBlock Margin="20 0 0 0" Text="{Binding Volunteer.Entity.OtherSchool}"   HorizontalAlignment="Left" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Strengths"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" TextWrapping="Wrap" Text="{Binding Volunteer.Entity.Strengths}"   HorizontalAlignment="Left" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <TextBlock Text="Reason for joining PACE"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" TextWrapping="Wrap" Text="{Binding Volunteer.Entity.ReasonForVolunteering}"   HorizontalAlignment="Left" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3">
+                <TextBlock Text="Why doing it for free"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" TextWrapping="Wrap" Text="{Binding Volunteer.Entity.PurposeForJoining}"   HorizontalAlignment="Left" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4">
+                <TextBlock Text="Prospective University"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" TextWrapping="Wrap" Text="{Binding Volunteer.Entity.ProspectiveUniversity}"   HorizontalAlignment="Left" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5">
+                <TextBlock Text="Career Interest"  Foreground="{StaticResource GreenYellowBrush}"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" />
+                <TextBlock Margin="20 0 0 0" TextWrapping="Wrap" Text="{Binding Volunteer.Entity.CareerInterest}"   HorizontalAlignment="Left" VerticalAlignment="Center"   Foreground="{StaticResource GrayLightBrush}"/>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

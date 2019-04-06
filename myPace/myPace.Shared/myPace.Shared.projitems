@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6279c845-92f8-4333-ab99-3d213163593c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>myPace.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviours\TimeChangedEventBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\AssignmentCoordView.xaml.cs">
+      <DependentUpon>AssignmentCoordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\NotificationsCoordView.xaml.cs">
+      <DependentUpon>NotificationsCoordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\ProjectsCoordView.xaml.cs">
+      <DependentUpon>ProjectsCoordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\ReportCoordView.xaml.cs">
+      <DependentUpon>ReportCoordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\SchoolAndTeachers\AddSchoolView.xaml.cs">
+      <DependentUpon>AddSchoolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\SchoolAndTeachers\AddTeacherView.xaml.cs">
+      <DependentUpon>AddTeacherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\SchoolAndTeachers\ListSchoolsView.xaml.cs">
+      <DependentUpon>ListSchoolsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\SchoolAndTeachers\ListTeachersView.xaml.cs">
+      <DependentUpon>ListTeachersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\TrainingCoordView.xaml.cs">
+      <DependentUpon>TrainingCoordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\VolunteerCoordView.xaml.cs">
+      <DependentUpon>VolunteerCoordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Coordinators\Volunteers\GeneralInfoView.xaml.cs">
+      <DependentUpon>GeneralInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\AssignmentVolView.xaml.cs">
+      <DependentUpon>AssignmentVolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\HomeVolView.xaml.cs">
+      <DependentUpon>HomeVolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\NotificationVolView.xaml.cs">
+      <DependentUpon>NotificationVolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\ProjectVolView.xaml.cs">
+      <DependentUpon>ProjectVolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageFour.xaml.cs">
+      <DependentUpon>RegVolPageFour.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageOne.xaml.cs">
+      <DependentUpon>RegVolPageOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageThree.xaml.cs">
+      <DependentUpon>RegVolPageThree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageTwo.xaml.cs">
+      <DependentUpon>RegVolPageTwo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageTwoB.xaml.cs">
+      <DependentUpon>RegVolPageTwoB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Volunteers\ReportsView.xaml.cs">
+      <DependentUpon>ReportsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\DisplayDateConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dtos\BaseEntityDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dtos\ReportDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dtos\SchoolDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dtos\TeacherDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dtos\UserEditDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\SelectProjectMainTypeEnum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\SelectVolunteerMainTypeEnum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\DtoHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\EntityLoadingHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\JsonReaderHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\TypeEnum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\FileHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ImageHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\BaseValidationHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IHttpClientService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\INavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\HttpClientService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\AddCoordinatorViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\AddSchoolTeachersViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\HomeCoordViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\ListSchoolsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\ListTeachersViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\NewVolDetailsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\SchoolsAndTeachersViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\VolDetailsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Coordinators\VolunteerCoordViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EditProfileInfoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectDetailsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ReportsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StartupViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Volunteers\HomeVolunteerViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Volunteers\NewProjectViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Volunteers\ProjectVolViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Volunteers\RegisterVolViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\Registration\AddCoordinatorPage.xaml.cs">
+      <DependentUpon>AddCoordinatorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\Registration\AddSchoolTeachersPage.xaml.cs">
+      <DependentUpon>AddSchoolTeachersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\HomeCoordinatorPage.xaml.cs">
+      <DependentUpon>HomeCoordinatorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\SchoolsAndTeachersPage.xaml.cs">
+      <DependentUpon>SchoolsAndTeachersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\EditProfileInfoPage.xaml.cs">
+      <DependentUpon>EditProfileInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\StartupPage.xaml.cs">
+      <DependentUpon>StartupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\HomeVolunteerPage.xaml.cs">
+      <DependentUpon>HomeVolunteerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\Registration\NewVolDetailsPage.xaml.cs">
+      <DependentUpon>NewVolDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\NewProjectPage.xaml.cs">
+      <DependentUpon>NewProjectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\ProjectDetailsPage.xaml.cs">
+      <DependentUpon>ProjectDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\RegisterVolPage.xaml.cs">
+      <DependentUpon>RegisterVolPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\VolDetailsPage.xaml.cs">
+      <DependentUpon>VolDetailsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\AssignmentCoordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\NotificationsCoordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\ProjectsCoordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\ReportCoordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\SchoolAndTeachers\AddSchoolView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\SchoolAndTeachers\AddTeacherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\SchoolAndTeachers\ListSchoolsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\SchoolAndTeachers\ListTeachersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\TrainingCoordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\VolunteerCoordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Coordinators\Volunteers\GeneralInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\AssignmentVolView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\HomeVolView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\NotificationVolView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\ProjectVolView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageFour.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageThree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageTwo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\Registration\RegVolPageTwoB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\Volunteers\ReportsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Styles\Controls\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Styles\Controls\DatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Styles\Controls\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Styles\General\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\Registration\AddCoordinatorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\Registration\AddSchoolTeachersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\HomeCoordinatorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\SchoolsAndTeachersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\EditProfileInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\StartupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\HomeVolunteerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\Registration\NewVolDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\NewProjectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\ProjectDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\RegisterVolPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\Coordinators\Volunteers\VolDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Data\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Events\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Coordinators\Registration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\bgChild.scale-200.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\bgMum.scale-200.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\logo.scale-200.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\logofull.scale-200.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\pacePic1.scale-200.jpg" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,105 @@
+﻿<UserControl
+    x:Class="myPace.Views.ListSchoolsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+   >
+
+    <Grid Background="{StaticResource WhiteLightBrush}">
+        <StackPanel x:Name="ProgressStack" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <ProgressRing x:Name="PrgoressLoading"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="100" Foreground="{StaticResource YellowLightBrush}"/>
+            <TextBlock Text="Please wait..." HorizontalAlignment="Center" Foreground="{StaticResource GrayLightBrush}" FontSize="20"/>
+        </StackPanel>
+        
+        <GridView x:Name="parent" ItemsSource="{Binding Schools}" HorizontalAlignment="Center">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Border  CornerRadius="10,10,0,0"  Padding="5" Height="480" Width="420" BorderThickness="1" BorderBrush="{StaticResource GrayLightBrush}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border  Background="{StaticResource FocusVisualBlackStrokeThemeBrush}" Grid.Row="0" Padding="15" Margin="-5,-5,-5,0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <TextBlock    FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Entity.Name}"  Foreground="{StaticResource WhiteLightBrush}"/>
+                            </Border>
+                            <Border Height="200" Grid.Row="1" Grid.ColumnSpan="2" Margin="-5,-5,-5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding ProfileImage}"/>
+                                </Border.Background>
+                            </Border>
+                            <TextBlock Text="Address"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="Area MP"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="Type"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="Principal"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Text="Coordinator"  Foreground="{StaticResource GreenYellowBrush}" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.Location}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.AreaMP}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.Type}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1" Text="{Binding Entity.Principle}"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                            <TextBlock Grid.Column="1"  Foreground="{StaticResource GrayLightBrush}" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" >
+                                <Run Text="{Binding Entity.Coordinator.FirstName}"/>
+                                <Run Text=""/>
+                                <Run Text="{Binding Entity.Coordinator.MiddleName}"/>
+                                <Run Text=""/>
+                                <Run Text="{Binding Entity.Coordinator.LastName}"/>
+                            </TextBlock>
+                            <Border Grid.Row="7" Height="50" Background="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Padding="0" Margin="-5,0,-5,-5" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <StackPanel Orientation="Horizontal" Margin="0">
+                                <Button  VerticalAlignment="Stretch">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Height="30">
+                                            <Path Data="M15.232187,2C12.536184,2.414999 10.735183,3.3369999 9.8801823,4.743 8.931181,6.3009996 9.4731818,8.0109997 9.4781819,8.0270004 9.5051823,8.1070004 9.5221816,8.1899996 9.5291815,8.2740002 9.6051818,9.2849998 9.7531825,9.6899996 9.8111821,9.8140001 9.9961825,9.974 10.119183,10.199 10.149182,10.449 10.195183,10.828 10.022183,11.199 9.7031823,11.408 9.6391822,11.578 9.9431821,12.043 10.278183,12.27 10.345182,12.315 10.407183,12.368 10.461183,12.428 10.568183,12.547 10.895184,12.908 11.057183,14.315 11.711184,18.011 15.103188,18.38 15.247188,18.394L15.886188,18.391C16.271189,18.344 19.415192,17.856 20.051191,14.256 20.204191,12.908 20.530191,12.547 20.637192,12.428 20.670193,12.392 20.705193,12.359 20.742193,12.328 20.970192,12.14 21.311194,11.664 21.315193,11.391 21.094193,11.192 20.952192,10.869 20.963192,10.572001 20.974194,10.274 21.096193,9.96 21.331194,9.7790003 21.326193,9.7790003 21.701193,9.4049997 21.576193,8.4849997 21.555193,8.3310003 21.570192,8.1739998 21.621193,8.0270004 21.624193,8.0159998 22.172194,6.2860003 21.206192,4.7220001 20.345192,3.3290005 18.549191,2.4130001 15.867188,2z M15.157188,0L15.942188,0C15.991188,0 16.041187,0.0039997101 16.090189,0.01099968 19.441191,0.51300049 21.741194,1.7539997 22.927195,3.7030001 24.132196,5.6820002 23.760195,7.7419996 23.582195,8.434 23.673195,9.4169998 23.438194,10.132 23.169195,10.61 23.271195,10.864 23.321196,11.139 23.315195,11.43 23.296194,12.401 22.639195,13.278 22.183193,13.719 22.127194,13.904 22.060194,14.279 22.029194,14.544 21.579725,17.09475 20.16324,18.624195 18.721054,19.476874L18.642242,19.521526 18.918047,19.553638C26.362166,20.483515 30.844812,24.600491 31.101189,30.959993 31.123194,31.511995 30.694204,31.976992 30.142199,31.998995 30.128191,32.000002 30.114183,32.000002 30.101183,32.000002 29.567183,32.000002 29.124186,31.578997 29.102182,31.039995 28.750191,22.295994 19.507113,21.353001 15.550083,21.353001 11.602058,21.353001 2.3789993,22.291996 1.9989917,31.000002 1.9749742,31.552996 1.4869947,31.969988 0.95598525,31.955996 0.40498618,31.931993 -0.023025914,31.464998 0.00096094546,30.913988 0.2765902,24.578999 4.7616683,20.47886 12.190003,19.55281L12.466403,19.520692 12.396011,19.481525C10.937103,18.634097 9.5229006,17.119125 9.0781813,14.604 9.0391818,14.275 8.9761811,13.935 8.9241811,13.75 8.3811808,13.302 7.6381803,12.429 7.6451803,11.411 7.6471801,11.064 7.7381802,10.739 7.9091802,10.45 7.68818,9.8669996 7.5941802,9.151 7.5431801,8.5349998 7.3841797,7.9680004 6.9011794,5.7910004 8.1721802,3.7030001 9.3571816,1.7539997 11.658184,0.51300049 15.009187,0.01099968 15.058188,0.0039997101 15.107187,0 15.157188,0z" Stretch="Uniform" Fill="{StaticResource WhiteLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Border>
+                                        <TextBlock Margin="10" VerticalAlignment="Center" Foreground="{StaticResource WhiteLightBrush}" Text="Volunteers"/>
+                                    </StackPanel>
+                                </Button>
+                                    <Button  VerticalAlignment="Stretch" Command="{Binding DataContext.EditSchoolCommand,ElementName=parent}"   CommandParameter="{Binding Entity.Id}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Height="30">
+                                            <Path Data="M1,25.07703L31,25.07703C31.552979,25.07703 32,25.525028 32,26.07703 32,26.629032 31.552979,27.07703 31,27.07703L1,27.07703C0.44702148,27.07703 0,26.629032 0,26.07703 0,25.525028 0.44702148,25.07703 1,25.07703z M9.8064213,17.357931L9.6760168,17.487015 8.8610172,21.393018 12.748013,20.558017 12.865452,20.441767z M20.509636,6.7630577L11.227604,15.951134 14.286634,19.034972 23.568132,9.8474321z M24.492002,2.821003L21.93083,5.3562489 24.989326,8.4406242 27.563,5.8930054z M24.500002,0L30.398996,5.9010048 13.740012,22.391018 6.2750196,23.99302 7.8420181,16.489014z" Stretch="Uniform" Fill="{StaticResource WhiteLightBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                                <Path.RenderTransform>
+                                                    <TransformGroup>
+                                                        <TransformGroup.Children>
+                                                            <RotateTransform Angle="0" />
+                                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        </TransformGroup.Children>
+                                                    </TransformGroup>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Border>
+                                        <TextBlock Margin="10" VerticalAlignment="Center" Foreground="{StaticResource WhiteLightBrush}" Text="Edit"/>
+                                    </StackPanel>
+                                </Button>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        
+    </Grid>
+</UserControl>

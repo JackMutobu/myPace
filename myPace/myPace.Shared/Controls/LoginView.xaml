@@ -1,0 +1,83 @@
+﻿<UserControl
+    x:Class="myPace.Controls.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Grid  MaxWidth="600" Height="Auto">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFBCB230"/>
+                <GradientStop Color="#FF746F06" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Image Source="ms-appx:///Assets/Images/logofull.png"/>
+            <StackPanel Margin="0 30 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="my" Foreground="{StaticResource YellowLightBrush}" FontSize="48"/>
+                <TextBlock VerticalAlignment="Center" Text="Pace" FontSize="72" Foreground="{StaticResource WhiteLightBrush}"/>
+            </StackPanel>
+            <StackPanel Visibility="{x:Bind Path = LoginViewModel.ErrorVisibility,Mode=OneWay}" HorizontalAlignment="Center">
+                <TextBlock Text="Errors" Foreground="{StaticResource RedBrush}"/>
+                <TextBlock Text="{x:Bind Path = LoginViewModel.ValidationErrors,Mode=OneWay}" Foreground="{StaticResource RedBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.RowSpan="3" Visibility="{Binding ProgressStackVisibility}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ProgressRing IsActive="{Binding ProgressRingActive}"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="100" Foreground="{StaticResource WhiteLightBrush}"/>
+                <TextBlock Text="Please wait..." HorizontalAlignment="Center" Foreground="{StaticResource WhiteLightBrush}" FontSize="20"/>
+            </StackPanel>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel VerticalAlignment="Center" >
+                <StackPanel Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border>
+                        <Path Data="M25,24C25.552999,24,26,24.448,26,25L26,28C26,28.552 25.552999,29 25,29 24.447,29 24,28.552 24,28L24,25C24,24.448,24.447,24,25,24z M20.000999,23L20.000999,30 30.000999,30 30.000999,23z M10.602998,15C5.8589983,15 2,18.829 2,23.536 2,24.895 3.1159992,26 4.4889984,26L18.000999,26 18.000999,21 27.845635,21 27.8726,20.917049C27.957256,20.633314 28.000007,20.33875 28.000007,20.038 28.000007,18.362995 26.654006,16.999991 25.000006,16.999991 23.655006,16.999991 22.467006,17.914994 22.108006,19.225998 22.041006,19.470998 22.005006,19.725999 22.001006,19.979999L20.000006,20 20.002006,19.923999C20.008006,19.525998 20.068006,19.106997 20.179006,18.699996 20.327756,18.155245 20.563256,17.651618 20.867881,17.202602L20.981181,17.042652 20.976524,17.038513C19.421333,15.720703,17.455747,15,15.396998,15L13,15z M13,2C9.9420013,2 7.4540033,4.4669991 7.4540033,7.5 7.4540033,9.9469995 9.1090021,12.123 11.479001,12.791 12.462,13.068 13.535999,13.069 14.521998,12.791 16.891997,12.122 18.545996,9.9460001 18.545996,7.5 18.545996,4.4669991 16.057997,2 13,2z M13,0C17.160997,0 20.545994,3.3640003 20.545994,7.5 20.545994,9.6899061 19.575278,11.720467 17.995886,13.115179L17.808195,13.274387 17.879476,13.290485C19.540149,13.685977,21.085412,14.477185,22.38862,15.614036L22.475604,15.692431 22.645803,15.59615C23.354319,15.213877 24.158881,14.999986 25.000006,14.999986 27.757007,14.999986 30.000007,17.259992 30.000007,20.038 30.000007,20.285875 29.982429,20.53122 29.947431,20.773136L29.908983,21 32.000999,21 32.000999,32 18.000999,32 18.000999,28 4.4889984,28C2.013999,28 0,25.997 0,23.536 0,18.633813 3.3858624,14.50334 7.9561052,13.332249L8.1918764,13.274946 8.0051222,13.116582C6.4251518,11.72178 5.4540043,9.6905622 5.4540043,7.5 5.4540043,3.3640003 8.8390026,0 13,0z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <TextBox PlaceholderForeground="{StaticResource FocusVisualBlackStrokeThemeBrush}"  Text="{x:Bind Path = LoginViewModel.Email,Mode=TwoWay}"   Style="{StaticResource TextBoxStyle}" PlaceholderText="Email or username" />
+                </StackPanel>
+                <StackPanel Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border>
+
+                        <Path Data="M28.499992,23.999992C29.052992,23.999992,29.499992,24.446992,29.499992,24.999992L29.499992,26.240841 30.487855,25.652588C30.962867,25.368566 31.575811,25.525593 31.858816,26.00061 32.141821,26.47465 31.985824,27.089724 31.511849,27.37173L30.455298,28.000679 31.511849,28.629835C31.985824,28.911872 32.141821,29.525939 31.858816,30.000956 31.671814,30.315008 31.339861,30.489004 30.998876,30.489004 30.824873,30.489004 30.647881,30.444017 30.487855,30.348001L29.499992,29.759941 29.499992,30.999992C29.499992,31.552992 29.052992,31.999992 28.499992,31.999992 27.946992,31.999992 27.499992,31.552992 27.499992,30.999992L27.499992,29.75993 26.512111,30.348001C26.352085,30.444017 26.175092,30.489004 26.00109,30.489004 25.660105,30.489004 25.328152,30.315008 25.14115,30.000956 24.858145,29.525939 25.014142,28.911872 25.488117,28.629835L26.544667,28.000679 25.488117,27.37173C25.014142,27.089724 24.858145,26.47465 25.14115,26.00061 25.323556,25.694447 25.643025,25.520383 25.974284,25.511369 25.996368,25.510767 26.018504,25.5109 26.040656,25.511776 26.201759,25.518145 26.36367,25.563831 26.512111,25.652588L27.499992,26.240853 27.499992,24.999992C27.499992,24.446992,27.946992,23.999992,28.499992,23.999992z M16.499992,23.999992C17.052992,23.999992,17.499992,24.446992,17.499992,24.999992L17.499992,26.240868 18.487888,25.652593C18.961864,25.368568 19.575831,25.525582 19.858817,26.000623 20.141802,26.474664 19.98581,27.089717 19.511835,27.371742L18.45528,28.00069 19.511835,28.62985C19.98581,28.911875 20.141802,29.525928 19.858817,30.000969 19.671826,30.314996 19.339844,30.489011 18.998862,30.489011 18.824871,30.489011 18.64788,30.444007 18.487888,30.347999L17.499992,29.759922 17.499992,30.999992C17.499992,31.552992 17.052992,31.999992 16.499992,31.999992 15.946992,31.999992 15.499992,31.552992 15.499992,30.999992L15.499992,29.759922 14.512096,30.347999C14.352105,30.444007 14.175114,30.489011 14.001123,30.489011 13.660141,30.489011 13.328158,30.314996 13.141168,30.000969 12.858183,29.525928 13.014174,28.911875 13.48815,28.62985L14.544704,28.00069 13.48815,27.371742C13.014174,27.089717 12.858183,26.474664 13.141168,26.000623 13.424153,25.525582 14.037121,25.368568 14.512096,25.652593L15.499992,26.240868 15.499992,24.999992C15.499992,24.446992,15.946992,23.999992,16.499992,23.999992z M3.4999924,23.999992C4.0529919,23.999992,4.4999924,24.446992,4.4999924,24.999993L4.4999924,26.240868 5.4878883,25.652593C5.9628639,25.368568 6.5758324,25.525582 6.8588161,26.000623 7.1418018,26.474664 6.9858093,27.089717 6.5118351,27.371742L5.4552803,28.00069 6.5118351,28.62985C6.9858093,28.911875 7.1418018,29.525928 6.8588161,30.000969 6.6718273,30.314996 6.3398438,30.489011 5.9988613,30.489011 5.8248711,30.489011 5.6478806,30.444007 5.4878883,30.347999L4.4999924,29.759922 4.4999924,30.999992C4.4999924,31.552992 4.0529919,31.999992 3.4999924,31.999992 2.9469929,31.999992 2.4999924,31.552992 2.4999924,30.999992L2.4999924,29.759922 1.5120964,30.347999C1.3521042,30.444007 1.1751137,30.489011 1.0011234,30.489011 0.66014099,30.489011 0.32815742,30.314996 0.14116859,30.000969 -0.14181709,29.525928 0.014175415,28.911875 0.48814964,28.62985L1.5447044,28.00069 0.48814964,27.371742C0.014175415,27.089717 -0.14181709,26.474664 0.14116859,26.000623 0.42415237,25.525582 1.0381203,25.368568 1.5120964,25.652593L2.4999924,26.240868 2.4999924,24.999993C2.4999924,24.446992,2.9469929,23.999992,3.4999924,23.999992z M16.998969,8.9999924C17.551969,8.9999924,17.998969,9.4469929,17.998969,9.9999924L17.998969,12.999992C17.998969,13.552993 17.551969,13.999992 16.998969,13.999992 16.445969,13.999992 15.998969,13.552993 15.998969,12.999992L15.998969,9.9999924C15.998969,9.4469929,16.445969,8.9999924,16.998969,8.9999924z M11.999992,7.9999981L11.999992,14.999997 21.999992,14.999997 21.999992,7.9999981z M16.998996,2C15.344996,2 13.998996,3.362999 13.998996,5.0380001 13.998996,5.3462486 14.043996,5.6483116 14.133153,5.9387016L14.153665,5.9999981 19.845578,5.9999981 19.872434,5.9166241C19.956246,5.6333122 19.998996,5.3387489 19.998996,5.0380001 19.998996,3.362999 18.653996,2 16.998996,2z M16.998996,0C19.755996,0 21.998996,2.2600002 21.998996,5.0380001 21.998996,5.2858753 21.981418,5.5313587 21.946367,5.7733974L21.907914,5.9999981 23.999992,5.9999981 23.999992,16.999997 9.9999924,16.999997 9.9999924,5.9999981 12.090864,5.9999981 12.054472,5.7914677C12.017558,5.5436878 11.998996,5.2922497 11.998996,5.0380001 11.998996,2.2600002 14.242996,0 16.998996,0z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <PasswordBox Password="{Binding Password,Mode=TwoWay}" Background="Transparent" MinWidth="296" Padding="10"  PlaceholderText="Password" BorderThickness="0 0 0 2" Margin="10 0 0 0" BorderBrush="{StaticResource YellowLightBrush}" Foreground="#FFEAEAEA" FontSize="16"/>
+                </StackPanel>
+                <StackPanel Margin="20 50">
+                    <Button MaxWidth="400" IsEnabled="{Binding BtnVisibility}" Command="{x:Bind  Path = LoginViewModel.GoToHomePage}" Padding="10" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Login" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="16"/>
+                    <Button MaxWidth="400" IsEnabled="{Binding BtnVisibility}" Command="{x:Bind Path = LoginViewModel.GoToRegisterPage}" Padding="10" Margin="0 5" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Register to volunteer" Foreground="{StaticResource WhiteLightBrush}" Background="#FF5A5A5A" FontSize="16"/>
+                </StackPanel>
+                <StackPanel Margin="20 0">
+                    <Button IsEnabled="{Binding BtnVisibility}" MaxWidth="400" Padding="10" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Forget Password?" Foreground="{StaticResource WhiteLightBrush}"  FontSize="16"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

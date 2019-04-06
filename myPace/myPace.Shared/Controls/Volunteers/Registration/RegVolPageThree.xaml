@@ -1,0 +1,87 @@
+﻿<UserControl
+    x:Class="myPace.Views.RegVolPageThree"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+>
+    <ScrollViewer>
+    <Grid Background="{StaticResource WhiteLightBrush}">
+        
+        <Grid>
+           
+            <Grid VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="10">
+                        <TextBlock HorizontalAlignment="Center" FontSize="20" Foreground="{StaticResource FocusVisualBlackStrokeThemeBrush}" Text="{Binding ImagePath}"/>
+                        <Button Margin="0 5" Command="{Binding UploadProfileCommand}" Padding="10" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Center" Content="Upload Profile Photo" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="16"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border>
+                        <Path Data="M7.9469902,21.585999L16.666991,21.585999C20.804992,21.585999,24.157989,24.940979,24.157989,29.077972L24.157989,32 0.45498656,32 0.45498656,29.077972C0.45498641,24.940979,3.8109738,21.585999,7.9469902,21.585999z M4.7279965,11.723999L18.841979,11.723999 18.845,11.812988C18.845,11.85199,18.845977,11.890991,18.845977,11.931L18.845977,12.550995C18.845977,16.493988 15.68399,19.689972 11.785003,19.689972 7.8849784,19.689972 4.7239987,16.493988 4.7239987,12.550995L4.7239987,11.931C4.7239987,11.890991,4.7249752,11.85199,4.7259823,11.812988z M1.0629883,7.3099976L1.427002,7.4919739 1.8829956,14.875C1.5179746,15.877991 0.60699447,15.603973 0.60699465,15.603973 -0.57800303,14.965973 1.0629881,7.3099976 1.0629883,7.3099976z M7.2419735,6.4139709L16.345,6.4139709C17.716003,6.4139709,18.826995,7.5249939,18.826995,8.8959961L18.826995,11.171997 4.7590023,11.171997 4.7590023,8.8959961C4.7590023,7.5249939,5.8710019,6.4139709,7.2419735,6.4139709z M11.792998,0L24.207,5.9989929 19.420989,7.6739807 19.393981,7.6079712C18.89099,6.42099,17.713988,5.5859985,16.345,5.5859985L7.2419735,5.5859985C5.9869992,5.5859985,4.8929745,6.2869873,4.3320004,7.3190002L4.2689816,7.4399719 0,5.7929993z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                        <TextBox  Text="{Binding Volunteer.Grades,Mode=TwoWay}"  PlaceholderText="KCSE Grades(Math,English)" Style="{StaticResource TextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border>
+                        <Path Data="M14,20L14,20.5C14,21.878 15.122,23 16.5,23 17.878,23 19,21.878 19,20.5L19,20z M3,20L3,29 29.000999,29 29,20.021999 29.001198,20 21,20 21,20.5C21,22.981001 18.981,25 16.5,25 14.019,25 12,22.981001 12,20.5L12,20z M2,9.999999L2,18 13,18 20,18 30,18 30,9.999999 23.000019,9.999999 9,10z M16,2C12.794415,2,10.168792,4.5254421,10.007821,7.6916552L10,7.999999 22,7.999999 21.99218,7.6916552C21.831208,4.5254421,19.205585,2,16,2z M16,0C20.342089,0,23.887644,3.4777169,23.997381,7.7938466L24,7.999999 30,7.999999C31.103001,7.999999,32,8.8969994,32,9.999999L32,19.167C32,19.459999,31.872,19.737,31.649,19.927L31,20.481998 31,29C31,30.102999,30.103001,31,29,31L3,31C1.8969998,31,1,30.102999,1,29L1,20.414 0.29300022,19.706999C0.10500002,19.519999,0,19.264999,0,19L0,9.999999C0,8.8969994,0.89699984,7.999999,2,7.999999L8,7.999999 8.0026183,7.7938466C8.1123566,3.4777169,11.657911,0,16,0z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                        <TextBox  Text="{Binding Volunteer.CareerInterest,Mode=TwoWay}"  PlaceholderText="What career do you want to pursue?" Style="{StaticResource TextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border>
+                        <Path Data="M16.664,24.997008L16.664,29.996961 19.664,29.996961 19.664,24.997008z M11.664,24.997008L11.664,29.996961 14.664,29.996961 14.664,24.997008z M15.828937,19.276746L11.29592,22.996917 20.593954,22.996917z M15.880005,3.9537773C15.453979,3.9698303 15.03302,4.4098353 15.017029,4.5828094 15.134033,5.012805 14.947998,5.4297998 14.567993,5.6617951 8.28302,9.4988542 9.3320313,14.310894 9.3800049,14.513898 9.4730225,14.908859 9.3190308,15.328844 8.9880371,15.563892L8.6420288,15.810903C8.4730225,15.932852,8.2700195,15.996878,8.0620117,15.996878L3.4349976,15.996878C2.6439819,15.996878,2,16.640863,2,17.431884L2,29.996961 9.6639996,29.996961 9.6639996,24.997008 8.4999104,24.997008C8.0769091,24.997008 7.7009072,24.730996 7.558907,24.333978 7.4159064,23.93596 7.5389066,23.491939 7.8659081,23.223926L15.179935,17.223652C15.539935,16.928638,16.060938,16.919638,16.428938,17.208652L24.114965,23.208926C24.451967,23.471938 24.584969,23.918958 24.444967,24.321977 24.306967,24.725995 23.926966,24.997008 23.499964,24.997008L21.664,24.997008 21.664,29.996961 30,29.996961 30,17.431884C30,16.640863,29.356018,15.996878,28.565002,15.996878L23.570984,15.996878C23.286011,15.996878,23.015991,15.875906,22.825012,15.662891L22.604004,15.415881C22.384033,15.16887 22.299988,14.828841 22.380981,14.507855 22.427002,14.310894 23.476013,9.4988542 17.190002,5.6617951 16.811035,5.4297998 16.630005,4.9748409 16.747009,4.5447845 16.726013,4.4087977 16.304993,3.9698303 15.880005,3.9537773z M15.863988,0C16.416988,1.1920929E-07,16.863987,0.44700325,16.863987,1.0000072L16.863987,2.1542596 16.918732,2.1753002C17.425713,2.3856325 17.892494,2.7349368 18.22998,3.176796 18.489014,3.515787 18.653015,3.8877985 18.713989,4.2588329 24.130005,7.7888222 24.570007,12.082853 24.455017,13.996866L28.565002,13.996866C30.458984,13.996866,32,15.537891,32,17.431884L32,30.996966C32,31.549947,31.552979,31.996972,31,31.996972L1,31.996972C0.44702148,31.996972,0,31.549947,0,30.996966L0,17.431884C0,15.537891,1.5410156,13.996866,3.4349976,13.996866L7.3040161,13.996866C7.1879883,12.082853 7.6290283,7.7888222 13.044983,4.2588329 13.10498,3.8877985 13.27002,3.515787 13.528015,3.176796 13.865501,2.7349368 14.332306,2.3856325 14.83929,2.1753002L14.863988,2.1658078 14.863988,1.0000072C14.863988,0.44700325,15.310987,1.1920929E-07,15.863988,0z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                        <TextBox  Text="{Binding Volunteer.ProspectiveUniversity,Mode=TwoWay}"  PlaceholderText="What's your perspective university?" Style="{StaticResource TextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Grid.Row="4" Margin="10 60">
+                        <Button MaxWidth="400" Command="{Binding GoToPageFour}" Padding="10" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Next" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="16"/>
+                        <Button MaxWidth="400" Command="{Binding GoToPageTwoB}" Padding="10" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Back" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="16"/>
+                    
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+    </ScrollViewer>
+</UserControl>

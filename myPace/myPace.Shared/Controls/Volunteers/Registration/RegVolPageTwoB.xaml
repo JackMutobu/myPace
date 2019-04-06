@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="myPace.Views.RegVolPageTwoB"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myPace.Views.Registration"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid  Background="{StaticResource WhiteLightBrush}">
+        
+        <Grid>
+           
+            <StackPanel VerticalAlignment="Center"  Grid.Row="0" Margin="0 10 0 0" Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock Text="Select schools that are closests to you" Foreground="{StaticResource GrayLightBrush}" FontSize="16"/>
+                <StackPanel Orientation="Horizontal">
+                    <Border VerticalAlignment="Top">
+                        <Path Data="M27.967957,15.530001L27.967957,17.194002 29.151001,17.194002 29.151001,15.530001z M26.636963,15.530001L26.636963,17.194002 27.842957,17.194002 27.842957,15.530001z M8.8699951,15.530001L8.8699951,17.194002 10.052002,17.194002 10.052002,15.530001z M7.5390015,15.530001L7.5390015,17.194002 8.742981,17.194002 8.742981,15.530001z M23.350952,15.487002L23.350952,17.130999 24.563965,17.130999 24.563965,15.487002z M22.052002,15.487002L22.052002,17.130999 23.225952,17.130999 23.225952,15.487002z M4.2519531,15.487002L4.2519531,17.130999 5.46698,17.130999 5.46698,15.487002z M2.9530029,15.487002L2.9530029,17.130999 4.1269531,17.130999 4.1269531,15.487002z M27.967957,13.738008L27.967957,15.403002 29.151001,15.403002 29.151001,13.738008z M26.636963,13.738008L26.636963,15.403002 27.842957,15.403002 27.842957,13.738008z M18.198975,13.738008L18.198975,18.261004 19.664978,18.261004 19.664978,13.738008z M16.523987,13.738008L16.523987,18.261004 18.072998,18.261004 18.072998,13.738008z M14.188965,13.738008L14.188965,18.261004 15.643005,18.261004 15.643005,13.738008z M12.502991,13.738008L12.502991,18.261004 14.062988,18.261004 14.062988,13.738008z M8.8699951,13.738008L8.8699951,15.403002 10.052002,15.403002 10.052002,13.738008z M7.5390015,13.738008L7.5390015,15.403002 8.742981,15.403002 8.742981,13.738008z M23.350952,13.675996L23.350952,15.36101 24.563965,15.36101 24.563965,13.675996z M22.052002,13.675996L22.052002,15.36101 23.225952,15.36101 23.225952,13.675996z M4.2519531,13.675996L4.2519531,15.36101 5.46698,15.36101 5.46698,13.675996z M2.9530029,13.675996L2.9530029,15.36101 4.1269531,15.36101 4.1269531,13.675996z M22.617004,8.7129985L22.617004,10.785997 25.130005,10.785997 25.130005,8.7129985z M17.591003,8.7129985L17.591003,10.785997 20.104004,10.785997 20.104004,8.7129985z M12.125,8.6490031L12.125,10.722001 14.638,10.722001 14.638,8.6490031z M7.098999,8.6490031L7.098999,10.722001 9.6119995,10.722001 9.6119995,8.6490031z M16.145996,4.7630011L16.145996,6.7630011 16.190002,6.761994C17.251953,6.7080084,18.10199,5.8569952,18.153992,4.7949988L18.154968,4.7630011z M14.011963,4.7630011L14.013,4.7949988C14.065002,5.8569952,14.915955,6.7080084,15.97699,6.761994L16.020996,6.7630011 16.020996,4.7630011z M16.145996,2.619995L16.145996,4.6380011 18.156006,4.6380011 18.153992,4.587998C18.10199,3.5260013,17.251953,2.6739961,16.190002,2.6210021z M16.020996,2.619995L15.97699,2.6210021C14.915955,2.6739961,14.065002,3.5260013,14.013,4.587998L14.011963,4.6380011 16.020996,4.6380011z M16.125,0L20.64801,3.0160064 20.64801,6.7019964 27.057007,6.7019964 27.057007,11.225007 31.119995,11.225007 31.119995,18.261004 32,18.261004 32,19.435 0,19.435 0,18.261004 0.87896729,18.261004 0.87896729,11.225007 4.9429932,11.225007 4.9429932,6.7019964 11.60199,6.7019964 11.60199,3.0160064z" Stretch="Uniform" Fill="{StaticResource RedBrush}"  Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <ScrollViewer Foreground="{StaticResource WhiteLightBrush}" Margin="10 0 0 0" VerticalScrollBarVisibility="Auto" Height="300" Width="296" Background="{StaticResource WhiteLightBrush}">
+                        <ItemsControl  Padding="10"  BorderThickness="0 0 0 2" Margin="10 0 0 0" BorderBrush="{StaticResource YellowLightBrush}" Foreground="{StaticResource WhiteLightBrush}" FontSize="16" ItemsSource="{Binding Schools}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <CheckBox Content="{Binding DisplayName}" 
+                          FontSize="16" 
+                          Foreground="{StaticResource GrayLightBrush}"
+                          IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                          IsThreeState="False" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </StackPanel>
+                <StackPanel Grid.Row="1"  Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox  HorizontalAlignment="Right" Margin="0 0 -40 0" Text="{Binding Volunteer.OtherSchool,Mode=TwoWay}" PlaceholderText="Other" Style="{StaticResource TextBoxStyle}"  />
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" Grid.Row="10" Margin="0 20">
+                    <Button MaxWidth="400" Command="{Binding GoToPageThree}" Padding="10" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Next" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="16"/>
+                    <Button MaxWidth="400" Command="{Binding GoToPageTwo}" Padding="10" Template="{StaticResource ButtonRoundedTemplate}"  HorizontalAlignment="Stretch" Content="Back" Foreground="{StaticResource WhiteLightBrush}" Background="#FFC2A30D" FontSize="16"/>
+
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Page>
