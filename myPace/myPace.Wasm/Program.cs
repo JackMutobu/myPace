@@ -9,6 +9,7 @@ namespace myPace.Wasm
 
         static void Main(string[] args)
         {
+            //Commented on webassembly
             Windows.UI.Xaml.Application.Start(_ => _app = new App());
         }
     }
